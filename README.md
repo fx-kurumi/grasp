@@ -1,9 +1,13 @@
 # #850 conversation chain — PR assets
 
-Real backend: #850 branch head f5f609d4 (server built from it + a local, uncommitted scripted agent provider; sqlite; real API/WS/engine).
-Left: main 8e8a4823 frontend. Right: #850 branch f5f609d4 frontend. Light theme, 1280×800 each, real entry.
-Both sides are aligned at the 确认并流转 click (red box, 7.5 s).
+Real backend: #850 branch head 22c01bbe (server built from the branch + a local, uncommitted scripted agent provider; sqlite; real API/WS/engine).
+Light theme, 1280×800 per side, real entry, 60.6 s total.
 
-- conversation-chain-before-after.png — after the click: main jumped to another item; #850 continues in place
-- conversation-chain-compare.mp4 — 31 s side by side, Chinese captions
-- conversation-chain-compare.gif — same, 12 fps, 1600 wide
+1. /gates — left: upstream main 50afb391; right: #850 22c01bbe. Aligned at the 确认并流转 click (7.5 s).
+   main jumps to another pending item; #850 stays, adds the separator + next task, the next node replies, the user keeps typing.
+2. Run live page /runs/:id/live — left: #849 fcf9bf3c (main has no live page); right: #850 22c01bbe.
+   #849 stops at 「交互已完成」 when the auto node ends; #850 continues the next node's chat in place, reply + 确认并流转 there, no navigation.
+
+- conversation-chain-before-after.png — top /gates, bottom live page (2564×2110)
+- conversation-chain-compare.mp4 — side by side with Chinese captions
+- conversation-chain-compare.gif — same, 10 fps, 1400 wide
